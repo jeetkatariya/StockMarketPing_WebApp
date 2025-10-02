@@ -1,0 +1,40 @@
+
+<h2 class="my-3 col-md-8 mx-auto">My Watchlist</h2>
+
+
+<div *ngIf="isLoading" class="d-flex justify-content-center my-5">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div *ngIf="!isLoading && watchlist.length === 0" class="row">
+  <div class="col-md-8 mx-auto">
+    <div class="alert alert-warning text-center">
+      <p class="mb-0">Currently, you don't have any stock in your watchlist.</p>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!isLoading && watchlist.length > 0">
+<div class="container mt-3">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card mb-3" style="cursor: pointer;" *ngFor="let item of watchlist" (click)="onCardClick(item.ticker)">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <button (click)="removeItem(item.company_name, item.ticker); $event.stopPropagation();" type="button" class="btn-close position-absolute top-0 start-0 mt-1 ms-2" aria-label="Close" style="z-index: 2; " ></button>
+              <div class="ms-5">
+                <h5 class="card-title">{{ item.ticker }}</h5>
+                <p class="card-text">{{ item.company_name }}</p>
+              </div>
+              <div class="text-end">
+                <h5 class="mb-0" [ngClass]="item.stockInfo.d < 0 ? 'text-danger' : 'text-success'">{{ item.stockInfo.c }}</h5>
+                <small [ngClass]="item.stockInfo.d < 0 ? 'text-danger' : 'text-success'">{{ item.stockInfo.d | number:'1.2-2' }} ({{ item.stockInfo.dp | number:'1.2-2' }}%)</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  

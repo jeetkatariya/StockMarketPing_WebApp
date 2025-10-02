@@ -1,0 +1,97 @@
+<h2 class="my-3 col-md-10 mx-auto">My Portfolio</h2>
+<div class="my-3 col-md-10 mx-auto">Available Funds: ${{ money.toFixed(2) }}</div>
+
+<div *ngIf="isLoading" class="d-flex justify-content-center my-5">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div *ngIf="watchlistmsg" [ngClass]="color" class="alert alert-dismissible fade show mt-3" role="alert">
+  {{ watchlistmsg }}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+</div>
+
+<div *ngIf="!isLoading  && dataReceived && stocks.length === 0" class="d-flex justify-content-center my-5">
+  
+  <div class="col-md-8 mx-auto">
+    <div class="alert alert-warning text-center">
+      <p class="mb-0">Currently, you don't have any stock in your portfolio.</p>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div *ngIf="!isLoading &&  stocks.length > 0">
+<div class="container mt-4">
+    <div class="card mb-3" *ngFor="let stock of stocks">
+      <div class="card-header">
+        {{ stock.symbol }} <span class="" style="font-size: x-small;">{{stock.name}}</span>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          
+          <div class="col-12 col-md-6">
+            <div class="form-group row">
+              <label class="col-4 col-md-4 col-form-label">Quantity:</label>
+              <div class="col-8 col-md-8">
+                <input type="text" readonly class="form-control-plaintext" value="{{ stock.quantity }}">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-4 col-md-4 col-form-label">Avg. Cost / Share:</label>
+              <div class="col-8 col-md-8">
+                <input type="text" readonly class="form-control-plaintext" value="${{ stock.averageCost.toFixed(2)}}">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-4 col-md-4 col-form-label">Total Cost:</label>
+              <div class="col-8 col-md-8">
+                <input type="text" readonly class="form-control-plaintext" value="${{ stock.total.toFixed(2)}}">
+              </div>
+            </div>
+          </div>
+          
+         
+          <div class="col-12 col-md-6">
+            <div class="form-group row">
+              <label class="col-4 col-md-4 col-form-label">Change:</label>
+              <div class="col-8 col-md-8">
+                <input type="text" readonly class="form-control-plaintext" value="{{stock.change.toFixed(2)}}">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-4 col-md-4 col-form-label">Current Price:</label>
+              <div class="col-8 col-md-8">
+                <input type="text" readonly class="form-control-plaintext" value="{{stock.currentPrice.toFixed(2)}}">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-4 col-md-4 col-form-label">Market Value:</label>
+              <div class="col-8 col-md-8">
+                <input type="text" readonly class="form-control-plaintext" value="{{stock.marketValue.toFixed(2)}}">
+              </div>
+            </div>
+       
+        </div>
+      </div>
+    </div>
+      
+      <div class="card-header">
+        <div class="row">
+          <div class="col-12">
+            <button (click)="openModalbuy(stock.symbol, stock.currentPrice, money, stock.name)" type="button" class="btn btn-primary">Buy</button>&nbsp;
+
+            <button (click)="openModalsell(stock.symbol, stock.currentPrice, money)" type="button" class="btn btn-danger">Sell</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+  
+
+
+

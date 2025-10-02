@@ -1,0 +1,11 @@
+.no-border-hover {
+    border: none !important; 
+    outline: none !important; 
+    box-shadow: none !important; 
+  }
+  
+  .no-border-hover:hover, .no-border-hover:focus {
+    box-shadow: none !important; 
+    background-color: transparent !important; 
+  }
+  

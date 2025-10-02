@@ -1,0 +1,37 @@
+
+
+
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        {{ data.symbol }}
+      <button type="button" class="btn-close no-border-hover" aria-label="Close" (click)="dialogRef.close()"></button>
+    </div>
+    <div class="card-body">
+      <form >
+        <div class="form-group">
+          <label for="currentPrice">Current Price:</label>  {{ data.currentPrice | currency }}
+          
+        </div>
+        <div class="form-group">
+          <label for="wallet">Money in Wallet:</label>  {{ data.availableFunds | currency }}
+       
+        </div>
+        <div class="form-group">
+          <label for="quantity">Quantity:</label>
+          <input type="number" id="quantity" class="form-control" name="quantity" [(ngModel)]="quantity" (ngModelChange)="onQuantityChange()" placeholder="1" min="0">
+        </div>
+        <div class="form-group">
+          <label for="total">Total:</label>{{ total | currency }}
+
+
+          <p *ngIf="cannotBuy" style="color: red;">Not enough money.</p>
+          <div class="d-flex justify-content-end">
+            <button type="submit" (click)="confirmPurchase()" [disabled]="cannotBuy" class="btn btn-success btn-sm">Buy</button>
+          </div>
+        </div>
+
+        
+       
+      </form>
+    </div>
+  </div>

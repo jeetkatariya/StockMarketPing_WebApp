@@ -1,0 +1,33 @@
+
+
+  <div class="card" style="height: 250px; border: none;">
+    <div class="card-header">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <span class="h6 mb-0" style="font-size: medium;">{{ data.source }}</span>
+        <button type="button" (click)="dialogRef.close()" class="bi bi-x" aria-label="Close" style="border: none; background-color: transparent; "></button>
+
+      </div>
+      <div class="text-muted" style="font-size: xx-small;"> {{ data.datetime * 1000 | date:'longDate' }}</div>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title" style="font-size: small;">{{ data.headline }}</h5>
+      <p class="card-text cssofnews" style="font-size: xx-small;">
+        {{ data.summary }} <br>
+        For more details click <a href="{{data.url}}" class="card-link">here</a>.
+      </p>
+    </div>
+    <div class="mt-5 p-1 border border-1  rounded m-3">
+      <div >
+       <p style="font-size: xx-small;">Share</p>
+        <button type="button" class="btn p-2 border-0" style="background-color: white;" (click)="shareOnFacebook()">
+          <img src="../../assets/facebook.svg" alt="Facebook" style="height: 30px; width: 30px; background-color: white;">
+        </button>
+        
+        
+        <button type="button" class="btn p-2 border-0" style="background-color: white;" (click)="shareOnTwitter()">
+          <img src="../../assets/twitter.svg" alt="Twitter" style="height: 30px; width: 30px;">
+        </button>
+      </div>
+    </div>
+  </div>
+

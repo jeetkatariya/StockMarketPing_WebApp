@@ -1,0 +1,80 @@
+.mat-autocomplete-panel {
+  min-height: 100px; 
+}
+
+.mat-spinner {
+  margin: 0 auto; 
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+
+.star-button {
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.star-icon {
+  font-size: 24px; 
+  color: white;
+  border: 2px solid black;
+}
+
+.star-button:focus {
+  outline: none;
+}
+
+.mycontainer{
+  width: 86%;
+  margin-left: 7%;
+}
+
+.container-custom {
+    height:  79.9vh !important; 
+  }
+
+  .form-control:focus {
+    box-shadow: none !important;
+  }
+
+  .btn-outline-secondary:hover {
+    background-color: transparent !important;
+  }
+
+  
+.nav-link {
+  border: 1.5px solid transparent;
+  border-radius: 10px;
+}
+
+
+
+.text-green {
+  color: green;
+}
+
+.text-red {
+  color: red;
+}
+
+
+.custom-navbar {
+  height: 30px; 
+}
+
+.custom-nav-link {
+  font-size: 12px; 
+  padding-top: 0.25rem; 
+  padding-bottom: 0.25rem;
+}
+
+
+.filled {
+  color: yellow;
+  /* background-color: yellow; */
+  fill: yellow;
+}

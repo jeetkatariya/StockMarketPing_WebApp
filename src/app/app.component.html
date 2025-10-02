@@ -1,0 +1,36 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark topbar fixed-top" style="background-color: #00008B;">
+  
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]="['/search/home']" style="font-size: 15px;">Stock Search</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"  aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item" [ngClass]="{'rounded-4 border px-2': router.url.startsWith('/search')}">
+          <a class="nav-link" [routerLink]="['/search/home']"  style="font-size: 12px;">Search</a>
+        </li>
+        <li class="nav-item" [ngClass]="{'rounded-4 border px-2': router.url.startsWith('/watchlist')}">
+          <a class="nav-link" [routerLink]="['/watchlist']"  style="font-size: 12px;">Watchlist</a>
+        </li>
+        <li class="nav-item" [ngClass]="{'rounded-4 border px-2': router.url.startsWith('/portfolio')}">
+          <a class="nav-link" [routerLink]="['/portfolio']"  style="font-size: 12px;">Portfolio</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container mt-5 mb-4 pt-3">
+<router-outlet></router-outlet>
+</div>
+
+
+<footer class="footer specs fixed-bottom">
+  <div class="container d-flex align-items-center justify-content-center" style="height: 100%;">
+    <p class="mb-0" style="font-size: 2vh;"><b>Powered by </b><a href="https://finnhub.io/" style="color: #00008B;">Finnhub.io</a></p>
+  </div>
+</footer>
+

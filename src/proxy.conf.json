@@ -1,0 +1,8 @@
+{
+  "/api": {
+    "target": "https://stockapp-backend-production-673d.up.railway.app",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}
